@@ -1,7 +1,10 @@
 // Place all the styles related to the Product controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
+.alert{
+  background-color:#ba543b;
+  color:#fff;
+}
 .products-show {
   margin-bottom: 5em;
   .page-header {

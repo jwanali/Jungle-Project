@@ -6,6 +6,41 @@
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <div> Order Details</div>
+      <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total_price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @order.line_items.each do |line_item|%>
+      <%= render partial: 'line_item', locals: { line_item: line_item } %>
+     
+      <%end%>
+      </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="4">
+          TOTAL:
+        </th>
+         
+        
+        
+        <th>
+          $<%= @order.total_cents / 100.0 %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+    <div>Email: <%= @order.email%></div>
+    
+      
+      
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>

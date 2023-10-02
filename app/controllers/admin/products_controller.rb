@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  before_action :authenticate
 
   def index
     
@@ -37,6 +38,12 @@ class Admin::ProductsController < ApplicationController
       :image,
       :price
     )
+  end
+  private
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['USERNAME'] && password == ENV['PASSWORD']
+    end
   end
 
 end

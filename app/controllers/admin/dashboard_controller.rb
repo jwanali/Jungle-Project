@@ -2,7 +2,8 @@ class Admin::DashboardController < ApplicationController
  before_action :authenticate
  
   def show
-    
+    @products = Product.order(id: :desc).all
+    @categories = Category.order(id: :desc).all
   end
   private
   def authenticate

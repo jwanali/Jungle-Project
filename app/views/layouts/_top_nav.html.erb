@@ -1,11 +1,27 @@
 
+
+
+<section>
 <header class="<%= current_page?(root_path) ? "hero" : "hero small" %>">
   <section class="title">
     <h3>Welcome to</h3>
     <h1>The Jungle</h1>
     <h2>Where you can find any plants!</h2>
   </section>
+ 
 </header>
+<section>
+<% if current_user %>
+<h5>
+Signed in as: <%= current_user.first_name %> <%=  current_user.last_name%> | <%= link_to "Logout", '/logout' %>
+
+</h5>
+
+<% else %>
+<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+<% end %>
+
+</section>
 <nav class="navbar navbar-expand-lg navbar-dark sticky-nav">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Jungle</a>
